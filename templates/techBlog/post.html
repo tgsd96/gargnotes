@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block stat %}
+<link rel="stylesheet" type="text/css"  href="{% static "css/style.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/post.css" %}">
+{% endblock %}
+    {% block title %}{{post.title}}{% endblock %}
+{% block heading %} {{post.title}} {%endblock%}
+{% block post-home %}<a href="{% url 'index' %}"><h2>gargNotes</h2></a>{% endblock %}
+    {% block content %}
+    <div class="post">
+        <div>
+            {%with 'images/'|add:post.images as image_static %}
+            <img src="{% static image_static %}" alt="Title img" style="max-width:100%;">
+            {% endwith %}
+            <h1> {{post.title}} </h1>
+            <p>
+                Posted on
+                <time datetime="{{post.created|date:"c"}}">
+                {{post.created|date}}
+                </time>
+                <div class="fb-share-button" data-href="{{post.get_absolute_url}}" data-layout="button_count"></div>
+            </p>
+        </div>
+        {{post.content|safe}}
+    </div>
+    {% endblock %}

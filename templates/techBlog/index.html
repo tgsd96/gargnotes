@@ -1,0 +1,58 @@
+{% extends 'base.html' %}  
+{% block title %}TechLoveBlog{% endblock %}
+{% load staticfiles %}
+{% block stat %}
+<link rel="stylesheet" type="text/css"  href="{% static "css/style.css" %}">
+{% endblock %}
+{% block js %}
+var color = ['#ED45AF','#DC4CEF','#6DF2EB','#75EDCB'];
+                $('.postHead').each(function(){
+                    var x =Math.floor(Math.random()*5);
+                    var col =color[x];
+                        $(this).css('color',col);
+            
+                    });//end each
+                var cnt = 0;
+                    $('.post').each(function(){
+                    if(cnt>0)
+                    {$(this).css('margin-left','20px');}
+                    cnt = cnt+1;
+                    if(cnt>2){cnt=0;}
+                    });//end each
+            
+{% endblock %}
+{% block heading %}
+<span id="tech">garg</span>N<span id="down">otes</span>  
+{% endblock %}
+{% block content %}
+<a href="{{hero.get_absolute_url}}">
+    <div id="hero-head">
+        <div class="main-post">
+        {%with 'images/'|add:hero.images as himage %}
+        <img src="{% static hero_image %}">
+        {% endwith %}
+        <h2 class="hero-head">{{hero.title}}</h2>
+        <p class="postTime"><time datetime = "{{hero.created|date:"c"}}">
+		{{hero.created|date}}
+		</time>
+		</p>
+        <p>{{hero.description}}</p>
+        </div>
+        <div class="post-det"><img style="margin-right:5px;margin-left:5px" src="{%static 'images/heart.png'%}">{{hero.likes}}<img style="margin-right : 5px;margin-left:5px;" src="{%static 'images/view.png'%}">{{hero.views}}</div>
+    </div>
+</a>
+	{% for post in posts %}
+	<a href="{{post.get_absolute_url}}">
+	<div class="post">
+        <div class="main-post">
+		{%with 'images/'|add:post.images as image_static %}
+        <img src="{% static image_static %}" alt="Title img" style="max-width:100%;">
+        {% endwith %}
+		<h2 class="postHead">{{post.title}}</h2>
+		<p class="postDesc">{{post.description}}</p>
+        </div>
+        <div class="post-det"><img style="margin-right:5px;margin-left:5px" src="{%static 'images/heart.png'%}">{{post.likes}}<img style="margin-left: 5px;margin-right:5px;" src="{%static 'images/view.png'%}">{{post.views}}</div>
+    	</div>
+	</a>
+	{% endfor %}
+{% endblock %}

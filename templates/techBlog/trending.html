@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}TechLoveBlog{% endblock %}
+{% load staticfiles %}
+{% block stat %}
+<link rel="stylesheet" type="text/css"  href="{% static "css/style.css" %}">
+{% endblock %}
+{% block js %}
+var color = ['#ED45AF','#DC4CEF','#6DF2EB','#75EDCB'];
+                $('.postHead').each(function(){
+                    var x =Math.floor(Math.random()*5);
+                    var col =color[x];
+                        $(this).css('color',col);
+            
+                    });//end each
+        var cnt = 0;
+                    $('.post').each(function(){
+                    if(cnt>0)
+                    {$(this).css('margin-left','20px');}
+                    cnt = cnt+1;
+                    if(cnt>2){cnt=0;}
+                    });//end each
+{% endblock %}
+{% block heading %}
+Trending
+{% endblock %}
+
+{% block content %}
+	{% for post in posts %}
+	<a href="{{post.get_absolute_url}}">
+	<div class="post">
+		{%with 'images/'|add:post.images as image_static %}
+        <img src="{% static image_static %}" alt="Title img" style="max-width:100%;">
+        {% endwith %}
+		<h2 class="postHead">{{post.title}}</h2>
+		<p class="postTime"><time datetime = "{{post.created|date:"c"}}">
+		{{post.created|date}}
+		</time>
+		</p>
+		<p class="postDesc">{{post.description}}</p>
+	</div>
+	</a>
+	{% endfor %}
+{% endblock %}

@@ -1,0 +1,141 @@
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>
+                {% block title %}{% endblock %}
+            </title>
+            {% load staticfiles %}
+            {% block stat %}{% endblock %}
+            <script src="{% static "js/jquery-1.7.2.min.js" %}"></script>
+            <script src="{% static "js/easing.js" %}"></script>
+            <script>
+            	$(document).ready(function(){
+                    var primary_colors = ['#F44336','#E91E63','#9C27B0','#673AB7','#3f51b5'];
+                    var off_colors = ['#D32F2F','#C2185B','#7B1FA2','#512DA8','#303F9F'];
+                    var col_slec = Math.floor(Math.random()*5);
+                    $('#off-set').css('background-color',off_colors[col_slec]);
+                    $('#main-nav').css('background-color',primary_colors[col_slec]);
+                     $('#post-back').css('background-color',primary_colors[col_slec]);
+                    /*
+                    var x =0;
+                    var check_scroll=0;
+                    $(window).scroll(function(){
+                        
+                        var scr = $(this).scrollTop()
+                        console.log(scr)
+                        if(scr>20)
+                        {
+                            $('#navi').css('background-color','#009688');
+                            $('#navi').css('color','#ffffff');
+                            //$('#navi').css('opacity','0.8');
+                            $('#show-case').css('background-color','#009688');
+                            if(check_scroll==0)
+                            {  $('#show-case').css('display','none');
+                            }  
+                            check_scroll=1;
+                            $('#navi').addClass('scroll')
+                            
+                            
+                        }
+                        else
+                        {
+                            $('#navi').css('background-color','#2196F3 ');
+                            $('#navi').css('color','#fff');
+                            $('#navi').css('opacity','1');
+                        }
+                        if(scr<x&&scr>10)
+                        {
+                             $('#show-case').slideDown(200);
+                             $('#navi').removeClass('scroll');
+                            $('#show-case').css('background-color','#009688');  
+                        }
+                        else
+                            if(scr<x)
+                        {
+                            $('#show-case').slideDown(200);
+                            $('#navi').removeClass('scroll');
+                            $('#show-case').css('background-color','#2196F3 '); 
+                            
+                        }
+                        else
+                            $('#show-case').slideUp(200);
+                        x =scr;
+                        
+                    });
+                */
+                    $('#menu-btn').toggle(function(){
+                        $('#sidebar').animate({ 'left' : '0px',},500);
+                        var photo = "{% static 'images/close-btn.png'%}";
+                        $('#menu-btn img').attr('src',photo);
+
+                    },
+                    function(){
+                        $('#sidebar').animate({ 'left' : '-300px',},500);
+                        var photo = "{% static 'images/menu-but.png'%}"
+                        $('#menu-btn img').attr('src',photo);
+                    });//end toggle
+                    
+                    $('#search-btn').click(function(){
+                        $('#search-btn img').css('display','none');
+                        $('#search-form').slideDown(100);
+                        $('#search-btn').css('margin-top','-80px');
+                    });//end click
+                    /**Still not working 
+                    $('#search-btn').hover(function() {
+                        // body...
+                        var photo = "{% static 'images/menu-but-ho.png'%}";
+                        $('#menu-btn img').attr('src',photo);
+                    },
+                    function(){
+                        var photo = "{% static 'images/menu-but.png'%}";
+                        $('#menu-btn img').attr('src',photo);
+                    }); //end hover
+                     **/
+            	{% block js %}
+            	{% endblock %}
+             	});//end ready
+            </script>
+            </head>
+        <body>
+            <div id="wrapper">
+                 <header>
+            <div id="off-set"></div>
+            <div id="main-nav">
+                <div id="cont-nav">
+                <div id="menu-btn"><img src="{%static 'images/menu-but.png'%}"/></div>
+                <div id="post-title">{% block post-home %}{% endblock %}</div>
+                <div id="page-title"><h1>{% block heading %}{% endblock %}</h1>   </div>
+                 <div id="search-btn">
+                     <div id="search-form"><form method="post" action="{% url 'search'%}">
+                         {% csrf_token %}
+                         <input type="text" name="search" id="search" placeholder="Search...">
+                         </form></div>
+                <img src="{%static 'images/search.png'%}">
+
+                </div> 
+                </div>
+            </div>
+            </header>
+            <div id="content">
+                {% block content %}
+                {% endblock %}
+                </div>
+            <div id="post-back">
+            </div>
+                  <div id="sidebar">
+                <h3>Menu</h3>
+                <ul>
+                <a href="{% url 'index' %}"><li>Home</li></a>
+                    <a href="{% url 'trending' %}"><li>Trending</li></a>
+                <li>Blog</li>
+                <li>UIET</li></ul>
+            </div>
+            </div>
+            <footer>
+                
+            </footer>
+        </body>
+    </html>
