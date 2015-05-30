@@ -13,7 +13,7 @@ import os
 import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-DATABASES['default'] = dj_database_url.config()
+
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
@@ -28,7 +28,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = [*]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -68,6 +68,7 @@ DATABASES = {
 
     }
 }
+DATABASES['default'] = dj_database_url.config()
 #haystack configuration
 
 
