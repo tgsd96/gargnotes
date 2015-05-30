@@ -29,7 +29,7 @@ var color = ['#ED45AF','#DC4CEF','#6DF2EB','#75EDCB'];
     <div id="hero-head">
         <div class="main-post">
         {%with 'images/'|add:hero.images as himage %}
-        <img src="{% static hero_image %}" alt="{{hero.title}}">
+        <img src="{% static himage %}" alt="{{hero.title}}">
         {% endwith %}
         <h2 class="hero-head">{{hero.title}}</h2>
         <p class="postTime"><time datetime = "{{hero.created|date:"c"}}">
