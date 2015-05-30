@@ -11,7 +11,7 @@
     <div class="post">
         <div>
             {%with 'images/'|add:post.images as image_static %}
-            <img src="{% static image_static %}" alt="Title img" style="max-width:100%;">
+            <img src="{% static image_static %}" alt="{{post.title}}" style="max-width:100%;">
             {% endwith %}
             <h1> {{post.title}} </h1>
             <p>

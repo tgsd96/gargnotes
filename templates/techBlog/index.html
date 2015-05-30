@@ -1,5 +1,5 @@
 {% extends 'base.html' %}  
-{% block title %}TechLoveBlog{% endblock %}
+{% block title %}gargNotes{% endblock %}
 {% load staticfiles %}
 {% block stat %}
 <link rel="stylesheet" type="text/css"  href="{% static "css/style.css" %}">
@@ -29,7 +29,7 @@ var color = ['#ED45AF','#DC4CEF','#6DF2EB','#75EDCB'];
     <div id="hero-head">
         <div class="main-post">
         {%with 'images/'|add:hero.images as himage %}
-        <img src="{% static hero_image %}">
+        <img src="{% static hero_image %}" alt="{{hero.title}}">
         {% endwith %}
         <h2 class="hero-head">{{hero.title}}</h2>
         <p class="postTime"><time datetime = "{{hero.created|date:"c"}}">
@@ -46,7 +46,7 @@ var color = ['#ED45AF','#DC4CEF','#6DF2EB','#75EDCB'];
 	<div class="post">
         <div class="main-post">
 		{%with 'images/'|add:post.images as image_static %}
-        <img src="{% static image_static %}" alt="Title img" style="max-width:100%;">
+        <img src="{% static image_static %}" alt="{{post.title}}" style="max-width:100%;">
         {% endwith %}
 		<h2 class="postHead">{{post.title}}</h2>
 		<p class="postDesc">{{post.description}}</p>
