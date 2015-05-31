@@ -16,6 +16,7 @@
             {% endwith %}
             {% endif %}
             <h1 id="Heading"> {{post.title}} </h1>
+            <div id="post-time">
             <p>
                 Posted on
                 <time datetime="{{post.created|date:"c"}}">
@@ -23,7 +24,10 @@
                 </time>
                 <div class="fb-share-button" data-href="{{post.get_absolute_url}}" data-layout="button_count"></div>
             </p>
+            </div>
         </div>
+        <div id="body">
         {{post.content|safe}}
+        </div>
     </div>
     {% endblock %}
