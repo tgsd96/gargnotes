@@ -1,7 +1,8 @@
 div.post{
-    width: 90%;
+    width: 100%;
     height: 100%;
-    float: right;   
+    float: right; 
+    border-radius: 2px;  
 }
 
 #post-back{
@@ -25,3 +26,24 @@ div.post{
 header{
     box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.0), 0 0px 0px 0 rgba(0, 0, 0, 0.0);
 }
+#Heading{
+    color: #699BD1;
+    position: relative;
+    left: 10px;
+
+}
+body{
+    background-color:rgba(0,0,0,0.7);
+}
+#page-title{
+    margin-top: -50px;
+    margin-left: -100px
+}
+/*
+#page-title h1{
+    font-size: 36px;
+}
+#search-btn{
+    position: relative;
+    top:30px;
+}*/

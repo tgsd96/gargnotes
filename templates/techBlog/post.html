@@ -10,10 +10,12 @@
     {% block content %}
     <div class="post">
         <div>
+            {% if post.images != "xxx" %}
             {%with 'images/'|add:post.images as image_static %}
             <img src="{% static image_static %}" alt="{{post.title}}" style="max-width:100%;">
             {% endwith %}
-            <h1> {{post.title}} </h1>
+            {% endif %}
+            <h1 id="Heading"> {{post.title}} </h1>
             <p>
                 Posted on
                 <time datetime="{{post.created|date:"c"}}">

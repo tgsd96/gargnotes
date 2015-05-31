@@ -1,13 +1,12 @@
+    {% load staticfiles %}
     <!DOCTYPE html>
     <html>
         <head>
             <meta charset="utf-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="shortcut icon"  href="{%static 'images/icon.png'%}">
             <title>
                 {% block title %}{% endblock %}
             </title>
-            {% load staticfiles %}
             {% block stat %}{% endblock %}
             <script src="{% static "js/jquery-1.7.2.min.js" %}"></script>
             <script src="{% static "js/easing.js" %}"></script>
@@ -19,6 +18,11 @@
                     $('#off-set').css('background-color',off_colors[col_slec]);
                     $('#main-nav').css('background-color',primary_colors[col_slec]);
                      $('#post-back').css('background-color',primary_colors[col_slec]);
+                     $('.postCover').each(function(){
+                            var postCol = Math.floor(Math.random()*5);
+                            $(this).css('background-color',primary_colors[postCol]);
+                     });//end each
+                     $('.heroCover').css('background-color',primary_colors[col_slec]);
                     /*
                     var x =0;
                     var check_scroll=0;
@@ -74,7 +78,7 @@
 
                     },
                     function(){
-                        $('#sidebar').animate({ 'left' : '-300px',},500);
+                        $('#sidebar').animate({ 'left' : '-200px',},500);
                         $('#wrapper').animate({'margin-left':'0px'},500);
                         var photo = "{% static 'images/menu-but.png'%}"
                         $('#menu-btn img').attr('src',photo);
@@ -117,7 +121,7 @@
                 <div id="cont-nav">
                 <div id="menu-btn"><img src="{%static 'images/menu-but.png'%}"/></div>
                 <div id="post-title">{% block post-home %}{% endblock %}</div>
-                <div id="page-title"><h1>{% block heading %}{% endblock %}</h1>   </div>
+                <div id="page-title"><h1>{% block heading %}{% endblock %}</h1>  </div>
                  <div id="search-btn">
                      <div id="search-form"><form method="post" action="{% url 'search'%}">
                          {% csrf_token %}
@@ -132,12 +136,12 @@
             <div id="content">
                 {% block content %}
                 {% endblock %}
-                </div>
+            </div>
             <div id="post-back">
             </div>
-            </div>
             <footer>
-                
+                <img id="company-logo" src="{% static "images/icon.png"%}">
             </footer>
+            </div>
         </body>
     </html>

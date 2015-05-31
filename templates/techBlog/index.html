@@ -22,15 +22,19 @@ var color = ['#ED45AF','#DC4CEF','#6DF2EB','#75EDCB'];
             
 {% endblock %}
 {% block heading %}
-<span id="tech">garg</span>N<span id="down">otes</span>  
+gar<img src="{% static 'images/icon.png' %}" height="60" width="60" id="head-logo"><span id="down">otes</span>  
 {% endblock %}
 {% block content %}
 <a href="{{hero.get_absolute_url}}">
     <div id="hero-head">
-        <div class="main-post">
-        {%with 'images/'|add:hero.images as himage %}
-        <img src="{% static himage %}" alt="{{hero.title}}">
-        {% endwith %}
+        <div class="heroCover">
+            {% if hero.images != "xxx" %}
+                {%with 'images/'|add:hero.images as himage %}
+                    <img class="postImg"src="{% static himage %}" alt="{{hero.title}}">
+                {% endwith %}
+            {% endif %}
+        </div>
+        <div class="mainHero">
         <h2 class="hero-head">{{hero.title}}</h2>
         <p class="postTime"><time datetime = "{{hero.created|date:"c"}}">
 		{{hero.created|date}}
@@ -38,16 +42,22 @@ var color = ['#ED45AF','#DC4CEF','#6DF2EB','#75EDCB'];
 		</p>
         <p>{{hero.description}}</p>
         </div>
-        <div class="post-det"><img style="margin-right:5px;margin-left:5px" src="{%static 'images/heart.png'%}">{{hero.likes}}<img style="margin-right : 5px;margin-left:5px;" src="{%static 'images/view.png'%}">{{hero.views}}</div>
+        <div class="heroDet"><img style="margin-right:5px;margin-left:5px" src="{%static 'images/heart.png'%}">{{hero.likes}}<img style="margin-right : 5px;margin-left:5px;" src="{%static 'images/view.png'%}">{{hero.views}}</div>
     </div>
 </a>
 	{% for post in posts %}
 	<a href="{{post.get_absolute_url}}">
 	<div class="post">
-        <div class="main-post">
-		{%with 'images/'|add:post.images as image_static %}
-        <img src="{% static image_static %}" alt="{{post.title}}" style="max-width:100%;">
+    <div class="postCover">
+        {% if post.images != "xxx" %}
+        {%with 'images/'|add:post.images as image_static %}
+        <img class="postImg"src="{% static image_static %}" alt="{{post.title}}" style="max-width:100%;">
         {% endwith %}
+        {% else %}
+        <h2 class="coverHead">{{post.title}}</h2>
+        {% endif %}
+        </div>
+        <div class="main-post">
 		<h2 class="postHead">{{post.title}}</h2>
 		<p class="postDesc">{{post.description}}</p>
         </div>
