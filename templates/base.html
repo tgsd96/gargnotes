@@ -68,12 +68,14 @@
                 */
                     $('#menu-btn').toggle(function(){
                         $('#sidebar').animate({ 'left' : '0px',},500);
+                        $('#wrapper').animate({'margin-left':'200px'},500);
                         var photo = "{% static 'images/close-btn.png'%}";
                         $('#menu-btn img').attr('src',photo);
 
                     },
                     function(){
                         $('#sidebar').animate({ 'left' : '-300px',},500);
+                        $('#wrapper').animate({'margin-left':'0px'},500);
                         var photo = "{% static 'images/menu-but.png'%}"
                         $('#menu-btn img').attr('src',photo);
                     });//end toggle
@@ -100,8 +102,16 @@
             </script>
             </head>
         <body>
+         <div id="sidebar">
+                <h3>Menu</h3>
+                <ul>
+                <a href="{% url 'index' %}"><li>Home</li></a>
+                    <a href="{% url 'trending' %}"><li>Trending</li></a>
+                <li>Blog</li>
+                <li>UIET</li></ul>
+            </div>
             <div id="wrapper">
-                 <header>
+            <header>
             <div id="off-set"></div>
             <div id="main-nav">
                 <div id="cont-nav">
@@ -124,14 +134,6 @@
                 {% endblock %}
                 </div>
             <div id="post-back">
-            </div>
-                  <div id="sidebar">
-                <h3>Menu</h3>
-                <ul>
-                <a href="{% url 'index' %}"><li>Home</li></a>
-                    <a href="{% url 'trending' %}"><li>Trending</li></a>
-                <li>Blog</li>
-                <li>UIET</li></ul>
             </div>
             </div>
             <footer>
