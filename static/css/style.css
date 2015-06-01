@@ -178,6 +178,7 @@ a{
 }
 .postCover{
     height: 45%;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
 }
 .coverHead{
     position: relative;
@@ -190,6 +191,7 @@ a{
     width: 50%;
     float: left;
     height: 100%;
+    border-right: 1px solid rgba(0,0,0,0.0);
 }
 .mainHero{
     width: 45%;
