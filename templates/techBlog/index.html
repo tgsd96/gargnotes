@@ -44,7 +44,7 @@ gar<img src="{% static 'images/icon.png' %}" height="60" width="60" id="head-log
 		</p>
         <p>{{hero.description}}</p>
         </div>
-        <div class="heroDet"><img style="margin-right:5px;margin-left:5px" src="{%static 'images/heart.png'%}">{{hero.likes}}<img style="margin-right : 5px;margin-left:5px;" src="{%static 'images/view.png'%}">{{hero.views}}</div>
+        <div class="heroDet"><img style="margin-right:5px;margin-left:5px" src="{%static 'images/heart.png'%}" alt="No. of Likes">{{hero.likes}}<img style="margin-right : 5px;margin-left:5px;" src="{%static 'images/view.png'%}" alt="No. of Views">{{hero.views}}</div>
     </div>
 </a>
 	{% for post in posts %}
@@ -63,7 +63,7 @@ gar<img src="{% static 'images/icon.png' %}" height="60" width="60" id="head-log
 		<h2 class="postHead">{{post.title}}</h2>
 		<p class="postDesc">{{post.description}}</p>
         </div>
-        <div class="post-det"><img style="margin-right:5px;margin-left:5px" src="{%static 'images/heart.png'%}">{{post.likes}}<img style="margin-left: 5px;margin-right:5px;" src="{%static 'images/view.png'%}">{{post.views}}</div>
+        <div class="post-det"><img style="margin-right:5px;margin-left:5px" src="{%static 'images/heart.png'%}" alt="No. of likes">{{post.likes}}<img style="margin-left: 5px;margin-right:5px;" src="{%static 'images/view.png'%} No. of views">{{post.views}}</div>
     	</div>
 	</a>
 	{% endfor %}

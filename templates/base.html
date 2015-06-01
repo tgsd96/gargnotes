@@ -139,7 +139,7 @@
             <div id="off-set"></div>
             <div id="main-nav">
                 <div id="cont-nav">
-                <div id="menu-btn"><img src="{%static 'images/menu-but.png'%}"/></div>
+                <div id="menu-btn"><img src="{%static 'images/menu-but.png'%}"/ alt="Menu-Button"></div>
                 <div id="post-title">{% block post-home %}{% endblock %}</div>
                 <div id="page-title"><h1>{% block heading %}{% endblock %}</h1>  </div>
                  <div id="search-btn">
@@ -147,7 +147,7 @@
                          {% csrf_token %}
                          <input type="text" name="search" id="search" placeholder="Search...">
                          </form></div>
-                <img src="{%static 'images/search.png'%}">
+                <img src="{%static 'images/search.png'%}" alt="search-icon">
 
                 </div> 
                 </div>
@@ -160,7 +160,7 @@
             <div id="post-back">
             </div>
             <footer>
-                <img id="company-logo" src="{% static "images/icon.png"%}">
+                <img id="company-logo" src="{% static "images/icon.png"%}" alt="gargNotes">
                 <h3>gargNotes</h3>
                 <div id="creator">
                     <p>Developed by:</p>
