@@ -11,7 +11,7 @@
     <div class="post">
         <div>
             {% if post.images != "xxx" %}
-            {%with 'images/postimages'|add:post.images as image_static %}
+            {%with 'images/postimages/'|add:post.images as image_static %}
             <img src="{% static image_static %}" alt="{{post.title}}" style="max-width:100%;">
             {% endwith %}
             {% endif %}
