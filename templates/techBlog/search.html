@@ -5,6 +5,7 @@
 {% block heading%}{{query}}{% endblock %}
 {% block stat %}
     <link rel="stylesheet" type="text/css"  href="{% static "css/style.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/search.css" %}">
 {% endblock %}
 {% block js %}
     var color = ['#ED45AF','#DC4CEF','#6DF2EB','#75EDCB'];
@@ -21,6 +22,7 @@
         if(cnt>2){cnt=0;}
     });//end each
 {% endblock %}
+{% block post-home %}<a href="{% url 'index' %}"><h2>gargNotes</h2></a>{% endblock %}
 {% block content %}
 	{% for post in posts %}
 	<a href="{{post.get_absolute_url}}">

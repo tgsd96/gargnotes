@@ -1,0 +1,28 @@
+#post-title{
+    float: left;
+    margin-top: -25px;
+    margin-left: 20px;
+}
+#Heading{
+    color: #699BD1;
+    position: relative;
+    left: 10px;
+}
+#page-title{
+    margin-top: -50px;
+    margin-left: -100px
+}
+#post-time{
+    font-size: 12px;
+}
+
+
+/*
+#page-title h1{
+    font-size: 36px;
+}
+*/
+#search-btn{
+    position: relative;
+    top:10px;
+}
