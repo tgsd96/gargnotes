@@ -29,7 +29,7 @@ gar<img src="{% static 'images/icon.png' %}" height="60" width="60" id="head-log
     <div id="hero-head">
         <div class="heroCover">
             {% if hero.images != "xxx" %}
-                {%with 'images/'|add:hero.images as himage %}
+                {%with 'images/postimages'|add:hero.images as himage %}
                     <img class="postImg"src="{% static himage %}" alt="{{hero.title}}">
                 {% endwith %}
             {% else %}
@@ -52,7 +52,7 @@ gar<img src="{% static 'images/icon.png' %}" height="60" width="60" id="head-log
 	<div class="post">
     <div class="postCover">
         {% if post.images != "xxx" %}
-        {%with 'images/'|add:post.images as image_static %}
+        {%with 'images/postimages'|add:post.images as image_static %}
         <img class="postImg"src="{% static image_static %}" alt="{{post.title}}" style="max-width:100%;">
         {% endwith %}
         {% else %}
