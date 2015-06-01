@@ -54,9 +54,8 @@ header{
 #page-title{
     text-align: center;
     margin-top: -60px;
-
-    height: auto;
     font-family: Roboto;
+    height: auto;
     font-size: 20px;
 }
 
@@ -116,6 +115,7 @@ a{
     text-align: center;
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.26);
     font-size: 24px;
+    font-family: Open Sans, sans-serif;
 }
 #sidebar ul{
    
