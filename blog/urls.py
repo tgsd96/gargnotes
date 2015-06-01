@@ -10,6 +10,4 @@ urlpatterns = patterns('',
     url(r'^(?P<slug>[\w\-]+)/$','techBlog.views.post',name='post'),
     url(r'^blog/trending/$','techBlog.views.trending',name='trending'),
     url(r'^blog/search/$','techBlog.views.search',name='search'),
-    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
-    name='django.contrib.sitemaps.views.sitemap'),
 )
