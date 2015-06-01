@@ -8,6 +8,7 @@
                 {% block title %}{% endblock %}
             </title>
             {% block stat %}{% endblock %}
+            <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Roboto:400,700|Open+Sans' rel='stylesheet' type='text/css'>
             <script src="{% static "js/jquery-1.7.2.min.js" %}"></script>
             <script src="{% static "js/easing.js" %}"></script>
             <script>
@@ -171,8 +172,9 @@
                         <p>Developed by:</p>
                         <h3>Tushar Garg</h3>
                         <ul>
-                        <li><a href="https://twitter.com/tushar747392" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false">Follow @tushar747392</a>
-                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                        <li><a href="https://www.facebook.com/tg.sd96"><img src="{% static 'images/fac-but.png'%}" alt="follow me on facebook"></a>
+                        <li><a href="https://twitter.com/tushar747392"><img src="{% static 'images/twi-but.png'%}" alt="follow me on twitter"></a>
+                        <li><img src="{% static 'images/in-but.png'%}" alt="follow me on LinkedIn">
                         </ul>
                     </div>
                 </footer>

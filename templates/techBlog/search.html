@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Results | gargnotes {% endblock %}
+{% load staticfiles %}
+{% block heading%}{{query}}{% endblock %}
+{% block stat %}
+    <link rel="stylesheet" type="text/css"  href="{% static "css/style.css" %}">
+{% endblock %}
+{% block js %}
+    var color = ['#ED45AF','#DC4CEF','#6DF2EB','#75EDCB'];
+    $('.postHead').each(function(){
+        var x =Math.floor(Math.random()*5);
+        var col =color[x];
+        $(this).css('color',col);
+     });//end each
+    var cnt = 0;
+    $('.post').each(function(){
+        if(cnt>0)
+        {$(this).css('margin-left','20px');}
+        cnt = cnt+1;
+        if(cnt>2){cnt=0;}
+    });//end each
+{% endblock %}
+{% block content %}
+	{% for post in posts %}
+	<a href="{{post.get_absolute_url}}">
+	   <div class="post">
+            <div class="postCover">
+                {% if post.images != "xxx" %}
+                    {%with 'images/postimages/'|add:post.images as image_static %}
+                    <img class="postImg"src="{% static image_static %}" alt="{{post.title}}" style="max-width:100%;">
+                    {% endwith %}
+                {% else %}
+                    <h2 class="coverHead">{{post.title}}</h2>
+                {% endif %}
+            </div>
+            <div class="main-post">
+		        <h2 class="postHead">{{post.title}}</h2>
+		         <p class="postDesc">{{post.description}}</p>
+            </div>
+            <div class="post-det">
+                <img style="margin-right:5px;margin-left:5px" src="{%static 'images/heart.png'%}" alt="No. of likes">{{post.likes}}
+                <img style="margin-left: 5px;margin-right:5px;" src="{%static 'images/view.png'%}" alt="No. of views">{{post.views}}
+            </div>
+    	</div>
+	   </a>
+	  {% endfor %}
+{% endblock %}

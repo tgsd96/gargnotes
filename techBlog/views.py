@@ -17,7 +17,7 @@ def post(request,slug):
 def search(request):
 	q = request.POST['search']
 	posts = Post.objects.filter(title= q)
-	return render(request,'techBlog/trending.html',{'posts' : posts})
+	return render(request,'techBlog/search.html',{'posts' : posts, 'query' : q })
 
 	
 	
