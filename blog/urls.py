@@ -1,6 +1,5 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from django.contrib.sitemaps.views import sitemap
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'blog.views.home', name='home'),
