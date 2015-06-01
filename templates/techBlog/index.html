@@ -32,6 +32,8 @@ gar<img src="{% static 'images/icon.png' %}" height="60" width="60" id="head-log
                 {%with 'images/'|add:hero.images as himage %}
                     <img class="postImg"src="{% static himage %}" alt="{{hero.title}}">
                 {% endwith %}
+            {% else %}
+            <h2 class="coverHead">{{hero.title}}</h2>
             {% endif %}
         </div>
         <div class="mainHero">

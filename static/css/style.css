@@ -102,7 +102,7 @@ a{
     width: 200px;
     left:-200px;
     height: 100%;
-    z-index: 1000px;
+    z-index: 1000;
     background-color: #D0725B;
     text-align: center;
     font-family: heiti TC;
@@ -207,6 +207,17 @@ footer{
     height: 500px;
     position: relative;
     top: 200px;
+    color: rgba(256,256,256,0.7);
+    padding: 25px;
+}
+footer h3{
+    font-size: 28px;
+}
+#creator{
+    float: right;
+    width: 30%;
+    position: relative;
+    top: -250px;
 }
 #wrapper{
     height: 100%;
