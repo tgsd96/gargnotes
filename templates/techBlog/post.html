@@ -39,8 +39,8 @@
         </ul>
         <ul>
             <ul id="share">
-                        <li><a href="http://www.facebook.com/sharer/sharer.php?u={{post.get_absolute_url}}" target="_blank"><img src="{% static 'images/fac-but.png'%}" alt="Share on facebook"></a>
-                        <li><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{post.title}}%20{{post.get_absolute_url}}" target="_blank"><img src="{% static 'images/twi-but.png'%}" alt="Share on twitter"></a>
+                        <li><a href="http://www.facebook.com/sharer/sharer.php?u=http://gargnotes.heroku.com{{post.get_absolute_url}}" target="_blank"><img src="{% static 'images/fac-but.png'%}" alt="Share on facebook"></a>
+                        <li><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{post.title}}%20http://gargnotes.heroku.com{{post.get_absolute_url}}" target="_blank"><img src="{% static 'images/twi-but.png'%}" alt="Share on twitter"></a>
             </ul>
     </div>
     {% endblock %}
