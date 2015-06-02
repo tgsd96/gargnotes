@@ -1,7 +1,7 @@
 div.post{
-    width: 90%;
+    width: 70%;
     height: 100%;
-    float: right; 
+    float: left; 
     box-shadow: none;
     font-family: Open Sans,sans-serif;
     font-size: 18px;
@@ -16,15 +16,14 @@ div.post:hover{
     height: 350px;
     background-color: #3F51B5;
     position: fixed;
-    top: 80px;
+    top: 70px;
     z-index: -10;
     
 
 }
 #content{
-    margin: 10px ;
-    background-color: white;
-    width: 960px;
+    background-color: #6E6E6E;
+    width: 100%;
 }
 
 #post-title{
@@ -43,7 +42,7 @@ header{
 
 }
 body{
-    background-color:rgba(0,0,0,0.7);
+    
 }
 #page-title{
     margin-top: -50px;
@@ -65,9 +64,9 @@ body{
 }
 #author{
     z-index: 20;
-    position: fixed;
-    right: 50px;
-    top: 160px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 60px;
     font-size: 20px;
     width: 300px;
     background-color: white;

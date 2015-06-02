@@ -3,13 +3,16 @@
 {% block stat %}
 <link rel="stylesheet" type="text/css"  href="{% static "css/style.css" %}">
 <link rel="stylesheet" type="text/css" href="{% static "css/post.css" %}">
+<meta name="description" content="{{post.description}}">
 {% endblock %}
 {% block js %}
+var hei = $(body).height();
+var hei = hei-600
 $(window).scroll(function(){
                         
                         var scr = $(this).scrollTop()
                         console.log(scr)
-                        if(scr>600)
+                        if(scr>hei)
                         {
                             $('#author').fadeOut();
                             
@@ -21,6 +24,7 @@ $(window).scroll(function(){
                         }
                         
                     });
+
 {% endblock %}
 {% block title %}{{post.title}}{% endblock %}
 {% block heading %} {{post.title}} {%endblock%}
