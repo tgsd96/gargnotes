@@ -1,12 +1,5 @@
-div.post{
-    width: 70%;
-    height: 100%;
-    float: left; 
-    box-shadow: none;
-    font-family: Open Sans,sans-serif;
-    font-size: 18px;
-    padding: 20px;
-}
+
+div.post{width: 70%;height: 100%;float: left;box-shadow: none;font-family: Open Sans,sans-serif;font-size: 18px;padding: 20px;}
 div.post:hover{
     box-shadow: none;
 }
@@ -24,6 +17,7 @@ div.post:hover{
 #content{
     background-color: #6E6E6E;
     width: 100%;
+    padding: 5px;
 }
 
 #post-title{
@@ -68,7 +62,7 @@ body{
     margin-right: 20px;
     margin-top: 60px;
     font-size: 20px;
-    width: 300px;
+    width: 22%;
     background-color: white;
     height: 35%;
     text-align: center;
