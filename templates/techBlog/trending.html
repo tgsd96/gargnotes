@@ -4,6 +4,7 @@
 {% load staticfiles %}
 {% block stat %}
 <link rel="stylesheet" type="text/css"  href="{% static "css/style.css" %}">
+<link rel="stylesheet" type="text/css"  href="{% static "css/search.css" %}">
 {% endblock %}
 {% block js %}
 var color = ['#ED45AF','#DC4CEF','#6DF2EB','#75EDCB'];
@@ -24,21 +25,29 @@ var color = ['#ED45AF','#DC4CEF','#6DF2EB','#75EDCB'];
 {% block heading %}
 Trending
 {% endblock %}
-
+{% block post-home %}<a href="{% url 'index' %}"><h2>gargNotes</h2></a>{% endblock %}
 {% block content %}
 	{% for post in posts %}
-	<a href="{{post.get_absolute_url}}">
-	<div class="post">
-		{%with 'images/'|add:post.images as image_static %}
-        <img src="{% static image_static %}" alt="Title img" style="max-width:100%;">
-        {% endwith %}
-		<h2 class="postHead">{{post.title}}</h2>
-		<p class="postTime"><time datetime = "{{post.created|date:"c"}}">
-		{{post.created|date}}
-		</time>
-		</p>
-		<p class="postDesc">{{post.description}}</p>
-	</div>
-	</a>
-	{% endfor %}
+       <a href="{{post.get_absolute_url}}">
+       <div class="post">
+            <div class="postCover">
+                {% if post.images != "xxx" %}
+                    {%with 'images/postimages/'|add:post.images as image_static %}
+                    <img class="postImg"src="{% static image_static %}" alt="{{post.title}}" style="max-width:100%;">
+                    {% endwith %}
+                {% else %}
+                    <h2 class="coverHead">{{post.title}}</h2>
+                {% endif %}
+            </div>
+            <div class="main-post">
+                <h2 class="postHead">{{post.title}}</h2>
+                 <p class="postDesc">{{post.description}}</p>
+            </div>
+            <div class="post-det">
+                <img style="margin-right:5px;margin-left:5px" src="{%static 'images/heart.png'%}" alt="No. of likes">{{post.likes}}
+                <img style="margin-left: 5px;margin-right:5px;" src="{%static 'images/view.png'%}" alt="No. of views">{{post.views}}
+            </div>
+        </div>
+       </a>
+    {% endfor %}
 {% endblock %}

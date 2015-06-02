@@ -4,7 +4,25 @@
 <link rel="stylesheet" type="text/css"  href="{% static "css/style.css" %}">
 <link rel="stylesheet" type="text/css" href="{% static "css/post.css" %}">
 {% endblock %}
-    {% block title %}{{post.title}}{% endblock %}
+{% block js %}
+$(window).scroll(function(){
+                        
+                        var scr = $(this).scrollTop()
+                        console.log(scr)
+                        if(scr>600)
+                        {
+                            $('#author').fadeOut();
+                            
+                            
+                        }
+                        else
+                        {
+                            $('#author').fadeIn();
+                        }
+                        
+                    });
+{% endblock %}
+{% block title %}{{post.title}}{% endblock %}
 {% block heading %} {{post.title}} {%endblock%}
 {% block post-home %}<a href="{% url 'index' %}"><h2>gargNotes</h2></a>{% endblock %}
     {% block content %}
@@ -29,5 +47,17 @@
         <div id="body">
         {{post.content|safe}}
         </div>
+    </div>
+    <div id="author">
+    <h5>Written By:</h5>
+        <ul>
+            <li>{{post.publisher}}</li>
+            <li style="font-size:12px;">{{post.created|date}}</li>
+        </ul>
+        <ul>
+            <ul id="share">
+                        <li><a href="http://www.facebook.com/sharer/sharer.php?u={{post.get_absolute_url}}" target="_blank"><img src="{% static 'images/fac-but.png'%}" alt="Share on facebook"></a>
+                        <li><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{post.title}}%20{{post.get_absolute_url}}" target="_blank"><img src="{% static 'images/twi-but.png'%}" alt="Share on twitter"></a>
+            </ul>
     </div>
     {% endblock %}

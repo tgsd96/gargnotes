@@ -13,7 +13,7 @@ class Post(models.Model):
 	views = models.IntegerField(default = 0)
 	images = models.CharField(max_length = 255)
 	likes = models.IntegerField(default= 0)
-
+	publisher = models.CharField(max_length=255,default="Tushar Garg")
 	def __unicode__(self):
 		return self.title
 	def get_absolute_url(self):
