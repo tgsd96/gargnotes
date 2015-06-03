@@ -4,6 +4,7 @@
         <head>
             <meta charset="utf-8">
             <link rel="shortcut icon"  href="{%static 'images/icon.png'%}">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
             <title>
                 {% block title %}{% endblock %}
             </title>
@@ -156,14 +157,15 @@
                         </div>
                     </div>
                 </header>
+                {% block author %}
+                
+                {% endblock %}
                 <div id="content">
                     {% block content %}
                     {% endblock %}
                 </div>
                 <div id="post-back">
                 </div>
-                {% block author %}
-                {% endblock %}
                 <footer>
                     <div id="logo">
                         <img id="company-logo" src="{% static "images/icon.png"%}" alt="gargNotes">

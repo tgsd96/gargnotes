@@ -37,9 +37,9 @@ a{color:white;text-decoration:none;}
 .heroCover{width:50%;float:left;height:100%;border-right:1px solid rgba(0,0,0,0.0);}
 .mainHero{width:45%;float:right;height:95%;}
 .heroDet{clear:right;position:relative;bottom:5px;left:10px;}
-footer{background-color:#333;height:500px;position:relative;top:200px;color:rgba(256,256,256,0.7);padding:25px;width: 100%;}
+footer{background-color:#333;height:700px;position:relative;top:200px;color:rgba(256,256,256,0.7);padding:25px;width: 100%;}
 footer h3{font-size:28px;}
-#creator{float:right;width:30%;position:relative;top:-250px; left: -40px;}
+#creator{margin: 0 auto;width:400px;}
 #creator li{list-style-type:none;display:inline;}
 #wrapper{height:100%;}
 #company-logo{width:160px;margin:0 auto;}
@@ -48,3 +48,4 @@ footer h3{font-size:28px;}
 #body{width:95%;position:relative;left:10px;}
 #logo{text-align:center;}
 #logo h3{position:relative;top:-20px;}
+
