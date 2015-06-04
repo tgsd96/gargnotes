@@ -79,3 +79,34 @@ body{
 #share li{
     display: inline;
 }
+@media screen and (max-width: 750px) {
+    
+    #post-title{
+        display: none;
+    }
+    #author{
+        float: none;
+        width:100%;
+        text-align: left;
+        position: relative;
+        top:120px;
+        left: 0px;
+        background-color: #333;
+        color: white;
+    }
+    #content{
+        width: 100%;
+    }
+    #author h5{
+        margin-left: 20px;
+    }
+    #search-btn{
+        display: none;
+    }
+    #seach-for{
+        display: block;
+    }
+    #share{
+        margin-left: -20px;
+    }
+}

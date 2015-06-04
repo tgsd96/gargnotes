@@ -131,6 +131,12 @@
             <div id="sidebar">
                 <h3>Menu</h3>
                 <ul>
+                <li><div id="search-for">
+                                    <form method="post" action="{% url 'search'%}">
+                                        {% csrf_token %}
+                                        <input type="text" name="search" id="search" placeholder="Search...">
+                                    </form>
+                </div></li>
                 <a href="{% url 'index' %}">       <li>Home</li></a>
                     <a href="{% url 'trending' %}"><li>Trending</li></a>
                                                     <li>Blog</li>

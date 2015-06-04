@@ -12,20 +12,6 @@
         $(this).css('color',col);
      });//end each
 
-    if($(window).width()>960)
-    {
-        var cnt = 0;
-        $('.post').each(function(){
-            if(cnt>0)
-                {$(this).css('margin-left','20px');}
-            cnt = cnt+1;
-            if(cnt>2){cnt=0;}
-    });//end each
-    }
-    else
-    {
-    
-    }
 {% endblock %}
 {% block heading %}
     gar<img src="{% static 'images/icon.png' %}" height="60" width="60" id="head-logo"><span id="down">otes</span>  
