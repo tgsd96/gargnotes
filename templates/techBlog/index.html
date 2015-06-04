@@ -22,7 +22,7 @@
             <div class="heroCover">
                 {% if hero.images != "xxx" %}
                     {%with 'images/postimages/'|add:hero.images as himage %}
-                     <img class="postImg" src="{% static himage %}" alt="{{hero.title}}" style="max-width:100%;float:right;">
+                     <img class="postImg" src="{% static himage %}" alt="{{hero.title}}" style="max-width:100%;">
                     {% endwith %}
                 {% else %}
                     <h2 class="coverHead">{{hero.title}}</h2>

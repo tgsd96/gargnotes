@@ -16,15 +16,33 @@
                     var primary_colors = ['#F44336','#E91E63','#9C27B0','#673AB7','#3f51b5'];
                     var off_colors = ['#D32F2F','#C2185B','#7B1FA2','#512DA8','#303F9F'];
                     var col_slec = Math.floor(Math.random()*5);
-                    $('#off-set').css('background-color',off_colors[col_slec]);
-                    $('#main-nav').css('background-color',primary_colors[col_slec]);
                      $('#post-back').css('background-color',primary_colors[col_slec]);
                      $('.postCover').each(function(){
                             var postCol = Math.floor(Math.random()*5);
                             $(this).css('background-color',primary_colors[postCol]);
                      });//end each
                      $('.heroCover').css('background-color',primary_colors[col_slec]);
-                    /*
+                    $('#menu-btn').toggle(function(){
+                        $('#sidebar').animate({ 'left' : '0px',},500);
+                        $('#wrapper').animate({'margin-left':'250px'},500);
+                        $('#wrapper').addClass('side')
+                        var photo = "{% static 'images/close-btn.png'%}";
+                        $('#menu-btn img').attr('src',photo);
+
+                    },
+                    function(){
+                        $('#sidebar').animate({ 'left' : '-250px',},500);
+                        $('#wrapper').animate({'margin-left':'0px'},500);
+                        $('#wrapper').removeClass('side');
+                        var photo = "{% static 'images/menu-but-ho.png'%}"
+                        $('#menu-btn img').attr('src',photo);
+                    });//end toggle
+                    
+                    $('#search-btn').click(function(){
+                        $('#search-btn img').css('display','none');
+                        $('#search-form').slideDown(100);
+                        $('#search-btn').css('margin-top','-80px');
+                    });//end clickvar 
                     var x =0;
                     var check_scroll=0;
                     $(window).scroll(function(){
@@ -33,63 +51,26 @@
                         console.log(scr)
                         if(scr>20)
                         {
-                            $('#navi').css('background-color','#009688');
-                            $('#navi').css('color','#ffffff');
-                            //$('#navi').css('opacity','0.8');
-                            $('#show-case').css('background-color','#009688');
                             if(check_scroll==0)
-                            {  $('#show-case').css('display','none');
-                            }  
+                            {  $('#main-nav').slideUp(200);                            }  
                             check_scroll=1;
-                            $('#navi').addClass('scroll')
-                            
-                            
-                        }
-                        else
-                        {
-                            $('#navi').css('background-color','#2196F3 ');
-                            $('#navi').css('color','#fff');
-                            $('#navi').css('opacity','1');
                         }
                         if(scr<x&&scr>10)
                         {
-                             $('#show-case').slideDown(200);
-                             $('#navi').removeClass('scroll');
-                            $('#show-case').css('background-color','#009688');  
+                             $('#main-nav').slideDown(200); 
                         }
                         else
                             if(scr<x)
                         {
-                            $('#show-case').slideDown(200);
-                            $('#navi').removeClass('scroll');
-                            $('#show-case').css('background-color','#2196F3 '); 
+                            $('#main-nav').slideDown(200);
                             
                         }
                         else
-                            $('#show-case').slideUp(200);
-                        x =scr;
+                            $('#main-nav').slideUp(200);
+                         x =scr;
                         
                     });
-                */
-                    $('#menu-btn').toggle(function(){
-                        $('#sidebar').animate({ 'left' : '0px',},500);
-                        $('#wrapper').animate({'margin-left':'200px'},500);
-                        var photo = "{% static 'images/close-btn.png'%}";
-                        $('#menu-btn img').attr('src',photo);
 
-                    },
-                    function(){
-                        $('#sidebar').animate({ 'left' : '-200px',},500);
-                        $('#wrapper').animate({'margin-left':'0px'},500);
-                        var photo = "{% static 'images/menu-but.png'%}"
-                        $('#menu-btn img').attr('src',photo);
-                    });//end toggle
-                    
-                    $('#search-btn').click(function(){
-                        $('#search-btn img').css('display','none');
-                        $('#search-form').slideDown(100);
-                        $('#search-btn').css('margin-top','-80px');
-                    });//end click
                     /**Still not working 
                     $('#search-btn').hover(function() {
                         // body...
@@ -128,7 +109,7 @@
                 }(document, 'script', 'facebook-jssdk'));</script>
                 <!--End Facebook sharing javascript-->
 
-            <div id="sidebar">
+            <div id="sidebar" class="side">
                 <h3>gargNotes</h3>
                 <ul>
                 <li id="sea"><div id="search-for">
@@ -145,10 +126,9 @@
             </div>
             <div id="wrapper">
                 <header>
-                    <div id="off-set"></div>
                     <div id="main-nav">
                         <div id="cont-nav">
-                            <div id="menu-btn"><img src="{%static 'images/menu-but.png'%}" alt="Menu-Button"></div>
+                            <div id="menu-btn" class="side"><img src="{%static 'images/menu-but-ho.png'%}" alt="Menu-Button"></div>
                             <div id="post-title">{% block post-home %}{% endblock %}</div>
                             <div id="page-title"><h1>{% block heading %}{% endblock %}</h1>  </div>
                             <div id="search-btn">
@@ -169,8 +149,6 @@
                 <div id="content">
                     {% block content %}
                     {% endblock %}
-                </div>
-                <div id="post-back">
                 </div>
                 <footer>
                     <div id="logo">
