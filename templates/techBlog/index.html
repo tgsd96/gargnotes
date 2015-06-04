@@ -11,7 +11,7 @@
         var col =color[x];
         $(this).css('color',col);
      });//end each
-
+ 
 {% endblock %}
 {% block heading %}
     gar<img src="{% static 'images/icon.png' %}" height="60" width="60" id="head-logo"><span id="down">otes</span>  
@@ -22,7 +22,7 @@
             <div class="heroCover">
                 {% if hero.images != "xxx" %}
                     {%with 'images/postimages/'|add:hero.images as himage %}
-                     <img class="postImg" src="{% static himage %}" alt="{{hero.title}}" style="max-width:100%;">
+                     <img class="postImg" src="{% static himage %}" alt="{{hero.title}}" style="max-width:100%;float:right;">
                     {% endwith %}
                 {% else %}
                     <h2 class="coverHead">{{hero.title}}</h2>
