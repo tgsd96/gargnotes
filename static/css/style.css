@@ -50,11 +50,21 @@ footer h3{font-size:28px;}
 #logo{text-align:center;}
 #logo h3{position:relative;top:-20px;}
 @media screen and (max-width: 960px) {
+	#content{
+		width: 100%;
+	}
+	#creator{
+		width: 320px;
+	}
+	#hero-head h2{
+		font-size: 18px;
+	}
 	#hero-head{
 		width: 100%;
 	}
-	#content{
-		width: 100%;
+	.post{
+		margin: 20px auto;
+		float: none;
 	}
 	
 }
