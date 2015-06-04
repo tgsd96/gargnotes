@@ -29,3 +29,21 @@
 .post h2{
     font-size: 18px;
 }
+@media screen and (max-width: 750px) {
+    
+    #post-title{
+        display: none;
+    }
+    #search-btn{
+        display: none;
+    }
+    #seach-for{
+        display: block;
+    }
+    #sidebar{
+        font-size: 12px;
+    }
+    div.post{
+        width: 70%;
+    }
+}

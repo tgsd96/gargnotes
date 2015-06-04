@@ -49,6 +49,9 @@ footer h3{font-size:28px;}
 
 #logo{text-align:center;}
 #logo h3{position:relative;top:-20px;}
+ul #sea:hover{
+	background-color: rgba(0,0,0,0.26);
+}
 @media screen and (max-width: 1080px) {
 	#content{
 		width: 100%;
@@ -93,6 +96,12 @@ footer h3{font-size:28px;}
 	}
 	header{
 		overflow: hidden;
+	}
+	#search-btn{
+		display: none;
+	}
+	#creator{
+		width: 300px;
 	}
 	
 }

@@ -14,13 +14,6 @@
         var col =color[x];
         $(this).css('color',col);
      });//end each
-    var cnt = 0;
-    $('.post').each(function(){
-        if(cnt>0)
-        {$(this).css('margin-left','20px');}
-        cnt = cnt+1;
-        if(cnt>2){cnt=0;}
-    });//end each
 {% endblock %}
 {% block post-home %}<a href="{% url 'index' %}"><h2>gargNotes</h2></a>{% endblock %}
 {% block content %}
