@@ -16,7 +16,9 @@ def post(request,slug):
 	return render(request,'techBlog/post.html',{'post':post})
 def search(request):
 	q = request.POST['search']
-	posts = Post.objects.filter(title= q)
+	q = q.split();
+	for que in q:
+		posts = Post.objects.filter(title__icontains = que).order_by('-created')
 	return render(request,'techBlog/search.html',{'posts' : posts, 'query' : q })
 
 	

@@ -28,7 +28,6 @@ div.post:hover{
 }
 header{
     box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.0), 0 0px 0px 0 rgba(0, 0, 0, 0.0);
-    margin-top: -10px;
 }
 #Heading{
     color: #699BD1;
@@ -40,8 +39,8 @@ body{
     
 }
 #page-title{
-    margin-top: -50px;
-    margin-left: -100px
+    margin-top: -20px;
+    font-size: 12px;
 }
 #post-time{
     font-size: 12px;
@@ -55,7 +54,7 @@ body{
 */
 #search-btn{
     position: relative;
-    top:10px;
+    top:30px;
 }
 #author{
     z-index: 5;
