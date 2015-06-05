@@ -68,7 +68,11 @@
                          x =scr;
                         
                     });
-
+                     $('#post-like a').click(function(){
+                            var link = $(this).attr('href');
+                            $('#like-count').load(link);
+                            return false;
+                     });//end click
                     /**Still not working 
                     $('#search-btn').hover(function() {
                         // body...

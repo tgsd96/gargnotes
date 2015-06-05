@@ -6,6 +6,8 @@
 <meta name="description" content="{{post.description}}">
 {% endblock %}
 {% block title %}{{post.title}}{% endblock %}
+{%block js %}
+{% endblock %}
 {% block heading %} {{post.title}} {%endblock%}
 {% block post-home %}<a href="{% url 'index' %}"><h2>gargNotes</h2></a>{% endblock %}
     {% block content %}
@@ -37,6 +39,7 @@
     <h5>Written By:</h5>
         <ul>
             <li>{{post.publisher}}</li>
+            <li>{{post.id}}</li>
             <li style="font-size:12px;">{{post.created|date}}</li>
         </ul>
         <ul>
@@ -44,5 +47,11 @@
                         <li><a href="http://www.facebook.com/sharer/sharer.php?u=http://gargnotes.heroku.com{{post.get_absolute_url}}" target="_blank"><img src="{% static 'images/fac-but.png'%}" alt="Share on facebook"></a>
                         <li><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{post.title}}%20http://gargnotes.heroku.com{{post.get_absolute_url}}" target="_blank"><img src="{% static 'images/twi-but.png'%}" alt="Share on twitter"></a>
             </ul>
+            <div id="post-like">
+            <a href="/blog/like/{{post.id}}">
+            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg width="80px" height="80px" viewBox="0 0 43 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"><path d="M21.621,7.99485c4.4584,-8.47097 13.3752,-8.47097 17.8336,-4.23549c4.45857,4.23549 4.45857,12.7065 0,21.1774c-3.12092,6.35323 -11.146,12.7065 -17.8336,16.9419c-6.68762,-4.23549 -14.7127,-10.5887 -17.8336,-16.9419c-4.45841,-8.47097 -4.45841,-16.9419 0,-21.1774c4.45842,-4.23549 13.3752,-4.23549 17.8336,4.23549Z" style="fill:#ff0090;" alt="Like"/></svg></a><p id="like-count" style="display:inline;">{{post.likes}}</p>
+            </div>
+
+
     </div>
     {% endblock %}

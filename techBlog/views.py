@@ -21,6 +21,9 @@ def search(request):
 		posts = Post.objects.filter(title__icontains = que).order_by('-created')
 	return render(request,'techBlog/search.html',{'posts' : posts, 'query' : q })
 
-	
-	
+def likes(request,post_id):
+	post = Post.objects.get(id = post_id)
+	post.likes = post.likes + 1
+	post.save();
+	return HttpResponse(post.likes)
 

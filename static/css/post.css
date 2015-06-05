@@ -117,5 +117,6 @@ body{
     }
     div.post{
         width: 70%;
+        font-size: 12px;
     }
 }
