@@ -23,17 +23,15 @@
                      });//end each
                      $('.heroCover').css('background-color',primary_colors[col_slec]);
                     $('#menu-btn').toggle(function(){
-                        $('#sidebar').animate({ 'left' : '0px',},500);
-                        $('#wrapper').animate({'margin-left':'250px'},500);
-                        $('#wrapper').addClass('side')
+                        $('#sidebar').animate({ 'left' : '0px',},200);
+                        $('#wrapper').animate({'margin-left':'250px'},200);
                         var photo = "{% static 'images/close-btn.png'%}";
                         $('#menu-btn img').attr('src',photo);
 
                     },
                     function(){
-                        $('#sidebar').animate({ 'left' : '-250px',},500);
-                        $('#wrapper').animate({'margin-left':'0px'},500);
-                        $('#wrapper').removeClass('side');
+                        $('#sidebar').animate({ 'left' : '-250px',},200);
+                        $('#wrapper').animate({'margin-left':'0px'},200);
                         var photo = "{% static 'images/menu-but-ho.png'%}"
                         $('#menu-btn img').attr('src',photo);
                     });//end toggle

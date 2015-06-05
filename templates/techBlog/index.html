@@ -6,7 +6,7 @@
 {% endblock %}
 {% block js %}
     var color = ['#ED45AF','#DC4CEF','#6DF2EB','#75EDCB'];
-    $('.postHead').each(function(){
+    $('.post h2').each(function(){
         var x =Math.floor(Math.random()*5);
         var col =color[x];
         $(this).css('color',col);
